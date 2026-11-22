@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex">
+<title>공유달력 초대 · 간편일정관리</title>
+<link rel="stylesheet" href="../assets/site.css">
+<main class="card">
+<h1>공유달력 초대</h1>
+<p id="guide">받은 초대 링크 전체를 열어 주세요.</p>
+<p><a id="open" hidden>간편일정관리에서 참여하기</a></p>
+<p><a href="https://apps.apple.com/kr/app/id6825350077">App Store에서 앱 보기</a></p>
+</main>
+<script>
+const token = location.hash.slice(1);
+if (/^[a-f0-9]{24}$/i.test(token)) {
+    const open = document.getElementById('open');
+    open.href = 'quickcalendar://invite#' + token;
+    open.hidden = false;
+    document.getElementById('guide').textContent = '앱을 열고 참여를 확인해 주세요. 앱이 열리지 않으면 초대 링크를 복사해 앱의 ‘새로운 공유달력’에서 붙여넣으세요.';
+}
+</script>
+</html>
